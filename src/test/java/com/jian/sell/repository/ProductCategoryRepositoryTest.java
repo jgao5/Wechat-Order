@@ -28,13 +28,18 @@ public class ProductCategoryRepositoryTest {
     @Test
 
     //回滚
-    @Transactional
     public void saveTest(){
         //ProductCategory productCategory = repository.findById(2).get();
         //更新
-        ProductCategory productCategory = new ProductCategory("最爱", 3);
-        ProductCategory result = repository.save(productCategory);
-        Assert.assertNotNull(result);
+        ProductCategory productCategory = new ProductCategory();
+        productCategory.setCategoryName("女生最爱");
+        productCategory.setCategoryType(2);
+        repository.save(productCategory);
+        //Assert.assertNotNull(result);
+
+        //ProductCategory productCategory1 = repository.findById(2).get();
+        //System.out.println(productCategory1.toString());
+
         //Assert.assertNotEquals(null, result);
     }
 

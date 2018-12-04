@@ -22,12 +22,12 @@ public class ProductInfoRepositoryTest {
     @Test
     public void saveTest(){
         ProductInfo productInfo = new ProductInfo();
-        productInfo.setProductId("123456");
-        productInfo.setProductName("汉堡");
-        productInfo.setProductPrice(new BigDecimal(18.5));
+        productInfo.setProductId("12344");
+        productInfo.setProductName("奶昔");
+        productInfo.setProductPrice(new BigDecimal(8.5));
         productInfo.setProductStock(100);
-        productInfo.setProductDescription("多汁");
-        productInfo.setProductIcon("http://xxxxx.jpg");
+        productInfo.setProductDescription("美味");
+        productInfo.setProductIcon("http://123.jpg");
         productInfo.setProductStatus(0);
         productInfo.setCategoryType(2);
 

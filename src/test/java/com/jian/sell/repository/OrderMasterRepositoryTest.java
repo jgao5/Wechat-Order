@@ -29,7 +29,7 @@ public class OrderMasterRepositoryTest {
         orderMaster.setOrderId("123457");
         orderMaster.setBuyerName("张三");
         orderMaster.setBuyerPhone("13522708863");
-        orderMaster.setBuyerAddress("农广南里");
+        orderMaster.setBuyerAddress("农光南里");
         orderMaster.setBuyerOpenid(OPENID);
         orderMaster.setOrderAmount(new BigDecimal(37.5));
         orderMaster.setCreateTime(new Date());

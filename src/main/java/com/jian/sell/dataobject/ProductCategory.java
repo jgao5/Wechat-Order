@@ -14,8 +14,6 @@ import javax.persistence.Id;
  */
 @Entity
 @DynamicUpdate
-
-//自动生成getter setter
 @Data
 public class ProductCategory {
     /** 类目id.  */
