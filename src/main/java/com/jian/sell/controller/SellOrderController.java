@@ -41,7 +41,6 @@ public class SellOrderController {
                              Map<String, Object> map){
         PageRequest request = PageRequest.of(page - 1, size);
         Page<OrderDTO> orderDTOPage = orderService.findList(request);
-        orderDTOPage.getContent();
         map.put("orderDTOPage", orderDTOPage);
         map.put("currentPage", page);
         map.put("size", size);

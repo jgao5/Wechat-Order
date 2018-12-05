@@ -23,7 +23,10 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductInfo findById(String productId) {
-        return productInfoRepository.getOne(productId);
+        if (!productInfoRepository.findById(productId).isPresent()){
+            throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+        }
+        return productInfoRepository.findById(productId).get();
     }
 
     @Override
@@ -74,5 +77,39 @@ public class ProductServiceImpl implements ProductService {
 
             productInfoRepository.save(productInfo);
         }
+    }
+
+    @Override
+    public ProductInfo onSale(String productId) {
+        if (!productInfoRepository.findById(productId).isPresent()){
+            throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+        }
+        ProductInfo productInfo =  productInfoRepository.findById(productId).get();
+
+        productInfoRepository.findById(productId).get();
+
+        if (productInfo.getProductStatusEnum() == ProductStatusEnum.UP) {
+            throw new SellException(ResultEnum.PRODUCT_STATUS_ERROR);
+        }
+
+        //更新
+        productInfo.setProductStatus(ProductStatusEnum.UP.getCode());
+        return productInfoRepository.save(productInfo);
+    }
+
+    @Override
+    public ProductInfo offSale(String productId) {
+        if (!productInfoRepository.findById(productId).isPresent()){
+            throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+        }
+        ProductInfo productInfo = productInfoRepository.findById(productId).get();
+
+        if (productInfo.getProductStatusEnum() == ProductStatusEnum.DOWN) {
+            throw new SellException(ResultEnum.ORDER_STATUS_ERROR);
+        }
+
+        //更新
+        productInfo.setProductStatus(ProductStatusEnum.DOWN.getCode());
+        return productInfoRepository.save(productInfo);
     }
 }
