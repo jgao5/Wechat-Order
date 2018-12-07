@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Date;
 
 /**
  * 类目
@@ -26,6 +27,12 @@ public class ProductCategory {
 
     /** 类目编号. */
     private Integer categoryType;
+
+    /** 创建时间 .*/
+    private Date createTime;
+
+    /** 修改时间 .*/
+    private Date updateTime;
 
     public ProductCategory() {
     }
